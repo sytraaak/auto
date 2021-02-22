@@ -92,7 +92,7 @@ else:
         print("Můžete si vybrat analýzu " + delka + " textů")
         # volba textu
         volba = input("Zadejte číslo od 1 do " + delka + ": ")
-        if volba.isalpha() or volba.isalnum() or volba == "" or int(volba) > int(delka) or int(volba) <= 0:
+        if volba.isalpha() or volba == "" or int(volba) > int(delka) or int(volba) <= 0:
             print("Zadali jeste chybné číslo, aplikace ukončena")
         else:
             zvoleny = texts[(int(volba) - 1)]
