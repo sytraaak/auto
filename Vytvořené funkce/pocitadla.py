@@ -12,7 +12,7 @@ def pocet_znaku(a):
 
 def pocet_prvku(a):
   """
-  Sečte počet prvků v tuplu , listu nebo slovníku
+  Sečte počet prvků v tuplu , listu  nebo slovníku
   U slovníku vrací klíče
   """
   pocet = dict()
