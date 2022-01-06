@@ -21,5 +21,5 @@ def pocet_prvku(a):
       pocet[char] = 1
     else:
       pocet[char] += 1
-  return print(pocet)
+  return pocet
 
