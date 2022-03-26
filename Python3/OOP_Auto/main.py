@@ -37,46 +37,37 @@ class Driver:
     def prerad(self):
         self.__car.shift()
 
-class Menu:
-    def __init__(self, car):
-        self.__menuChoice = "X"
-        self.__car = car
-
-    def __str__(self):
-        return f"0. Spusti hru\n1. Změň barvu\n2. Změň název auta\n3. Přesedni do jiného auta"
-
-    def menuChoice(self):
-        print(self)
-        self.__menuChoice = int(input("Zvolte co chcete dělat: "))
-        if self.__menuChoice == 0:
-            print("Tohle je 0")
-            print(type(self.__menuChoice))
-        elif self.__menuChoice == 1:
-            self.__car.changeColor()
-        elif self.__menuChoice == 2:
-            self.__car.changeName()
-
-
 class Game:
-    def __init__(self, driver, car, menu):
+    def __init__(self):
         self.__gameon = 1
-        self.__driver = driver
-        self.__car = car
-        self.__menu = menu
+        self.__car = Car()
+        self.__driver = Driver(self.__car)
+        self.__menuChoice = "X"
 
     def play(self):
-        while self.__menu.menuChoice != 0:
-            self.__menu.menuChoice()
         while self.__gameon == 1:
             print(self.__car)
             self.__driver.prerad()
 
+    def menuPrint(self):
+        print(f"0. Spusti hru\n1. Změň barvu\n2. Změň název auta\n3. Informace o autě")
+
+    def menu(self):
+        while self.__menuChoice != 0:
+            self.menuPrint()
+            self.__menuChoice = int(input("Zvolte co chcete dělat: "))
+            if self.__menuChoice == 0:
+                self.play()
+            elif self.__menuChoice == 1:
+                self.__car.changeColor()
+            elif self.__menuChoice == 2:
+                self.__car.changeName()
+            elif self.__menuChoice == 3:
+                print(self.__car)
+
 if __name__ == '__main__':
-    car = Car()
-    driver = Driver(car)
-    menu = Menu(car)
-    game = Game(driver, car, menu)
-    game.play()
+    game = Game()
+    game.menu()
 
 
 
